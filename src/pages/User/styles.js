@@ -35,11 +35,20 @@ export const Bio = styled.Text`
   text-align: center;
 `;
 
+export const Loading = styled.ActivityIndicator.attrs({
+  color: '#7159c1',
+  size: 50,
+})`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+`;
+
 export const Stars = styled.FlatList.attrs({
   showsVerticalScrollIndicator: false,
 })`
   margin-top: 20px;
-  opacity: ${props => (props.loading ? 0.7 : 1)};
 `;
 
 export const Starred = styled.View`

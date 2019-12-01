@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { ActivityIndicator } from 'react-native';
 import PropTypes from 'prop-types';
 import api from '../../services/api';
 
@@ -9,6 +8,7 @@ import {
   Avatar,
   Name,
   Bio,
+  Loading,
   Stars,
   Starred,
   OwnerAvatar,
@@ -30,14 +30,12 @@ export default class User extends Component {
 
   state = {
     stars: [],
-    loading: false,
+    loading: true,
   };
 
   async componentDidMount() {
     const { navigation } = this.props;
     const user = navigation.getParam('user');
-
-    this.setState({ loading: true });
 
     const response = await api.get(`/users/${user.login}/starred`);
 
@@ -58,7 +56,7 @@ export default class User extends Component {
           <Bio>{user.bio}</Bio>
         </Header>
         {loading ? (
-          <ActivityIndicator color="#fff" />
+          <Loading />
         ) : (
           <Stars
             data={stars}
