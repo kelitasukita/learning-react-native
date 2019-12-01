@@ -20,10 +20,6 @@ import {
 } from './styles';
 
 export default class Main extends Component {
-  static navigationOptions = {
-    title: 'Usuários',
-  };
-
   static propTypes = {
     navigation: PropyTypes.shape({
       navigate: PropyTypes.func,
@@ -78,6 +74,10 @@ export default class Main extends Component {
     });
 
     Keyboard.dismiss();
+  };
+
+  static navigationOptions = {
+    title: 'Usuários',
   };
 
   render() {
